@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const capitulos = [
   { id: '01_resumen', titulo: '1. Resumen Ejecutivo', archivo: '01_resumen_cifvic.md' },
@@ -8,7 +9,7 @@ const capitulos = [
   { id: '04_comparacion', titulo: '4. Análisis y Comparación', archivo: '04_comparacion_cifvic.md' },
   { id: '05_responsabilidades', titulo: '5. Responsabilidades Legales', archivo: '05_responsabilidades_cifvic.md' },
   { id: '06_datos', titulo: '6. Protección de Datos', archivo: '06_datos_cifvic.md' },
-  { id: '07_conclusiones', titulo: '7. Conclusiones y Cierre', archivo: '07_conclusions_cifvic.md' },
+  { id: '07_conclusiones', titulo: '7. Conclusiones y Cierre', archivo: '07_conclusiones_cifvic.md' },
   { id: '08_prompts', titulo: '8. Registro de Prompts', archivo: '08_prompts_cifvic.md' },
 ];
 
@@ -35,7 +36,7 @@ export default function App() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif', background: 'linear-gradient(180deg, #e2e8f0 0%, #f8fafc 100%)', margin: 0 }}>
       
-      {/* Barra de Encabezado Institucional */}
+      
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#020617', color: 'white', padding: '15px 30px', boxShadow: '0 4px 12px rgba(0,0,0,0.15)', zIndex: 10 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
           <div style={{ backgroundColor: '#2563eb', width: '35px', height: '35px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '1.2rem' }}>Δ</div>
@@ -46,10 +47,9 @@ export default function App() {
         </div>
       </header>
 
-      {/* Cuerpo Principal */}
+     
       <div style={{ display: 'flex', flexGrow: 1, overflow: 'hidden' }}>
         
-        {/* Barra Lateral Navegación */}
         <aside style={{ width: '320px', background: 'linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)', padding: '28px 24px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', borderRight: '1px solid rgba(148, 163, 184, 0.32)' }}>
           <div style={{ marginBottom: '18px' }}>
             <span style={{ fontSize: '0.75rem', fontWeight: '700', color: '#334155', letterSpacing: '1px', textTransform: 'uppercase' }}>Panel de navegación</span>
@@ -71,7 +71,7 @@ export default function App() {
               value={busqueda}
               onChange={(e) => setBusqueda(e.target.value)}
               placeholder="Buscar capítulo..."
-              style={{ width: '100%', padding: '12px 14px', borderRadius: '14px', border: '1px solid #cbd5e1', backgroundColor: '#f8fafc', color: '#0f172a', fontSize: '0.92rem' }}
+              style={{ width: '100%', padding: '12px 14px', borderRadius: '14px', border: '1px solid #cbd5e1', backgroundColor: '#f8fafc', color: '#0f172a', fontSize: '0.92rem', boxSizing: 'border-box' }}
             />
           </div>
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '8px', flexGrow: 1, overflowY: 'auto', paddingRight: '4px' }}>
@@ -112,7 +112,6 @@ export default function App() {
           </div>
         </aside>
 
-        {/* Contenedor del Documento */}
         <main style={{ flexGrow: 1, padding: '44px 60px 50px', overflowY: 'auto', boxSizing: 'border-box' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: '18px', marginBottom: '26px', flexWrap: 'wrap' }}>
             <div>
@@ -166,7 +165,7 @@ export default function App() {
               </div>
             </div>
             <div style={{ fontSize: '1rem', lineHeight: '1.9' }} className="markdown-body">
-              <ReactMarkdown>{contenido}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{contenido}</ReactMarkdown>
             </div>
           </article>
         </main>

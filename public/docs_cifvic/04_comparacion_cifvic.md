@@ -1,5 +1,7 @@
 # Comparación de Marcos Regulatorios por Industria
 
+## Análisis Comparativo Intersectorial
+
 | Eje de Comparación | Sector Público / Judicial (DS 83 / Ley 21.459) | Industria Bancaria (CMF) | Sector Salud (MINSAL) |
 | :--- | :--- | :--- | :--- |
 | **Severidad de Sanciones** | Sumarios administrativos internos, destituciones funcionales y severa pérdida de fe pública del Estado. | Altas multas comerciales dictadas por la CMF y revocación de licencias de operación financiera. | Sumarios administrativos directos de la autoridad sanitaria y multas en dinero. |
